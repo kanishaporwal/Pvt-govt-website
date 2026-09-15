@@ -1,0 +1,3465 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Private Government of India</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root{
+    --navy:#101b2d;
+    --navy2:#17263d;
+    --blue:#243b5a;
+    --cream:#f4efe4;
+    --paper:#fffdf7;
+    --gold:#c7a45b;
+    --muted:#788398;
+    --white:#ffffff;
+    --dark:#0c1421;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--navy);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+section{
+    min-height:100vh;
+    position:relative;
+    padding:110px 7%;
+}
+
+h1,h2,h3{
+    font-weight:900;
+}
+
+h2{
+    font-size:clamp(42px,6vw,80px);
+    line-height:.95;
+}
+
+p{
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 6%;
+
+    background:rgba(16,27,45,.94);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.12);
+
+    z-index:9999;
+}
+
+.logo{
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+nav .links{
+    display:flex;
+    gap:28px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    opacity:.72;
+    transition:.3s ease;
+}
+
+nav a:hover{
+    opacity:1;
+    color:var(--gold);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #304b70 0%,
+            #182940 30%,
+            #101b2d 65%,
+            #0b1320 100%
+        );
+
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(199,164,91,.15);
+
+    box-shadow:
+        0 0 100px rgba(199,164,91,.08);
+
+    animation:
+        heroRing 7s ease-in-out infinite;
+}
+
+@keyframes heroRing{
+
+    0%,100%{
+        transform:scale(.85);
+        opacity:.4;
+    }
+
+    50%{
+        transform:scale(1.1);
+        opacity:1;
+    }
+
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.eyebrow{
+    color:var(--gold);
+    letter-spacing:5px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(55px,10vw,130px);
+    line-height:.82;
+    letter-spacing:-5px;
+
+    animation:
+        heroTitle 1.2s
+        cubic-bezier(.2,.8,.2,1)
+        both;
+}
+
+.hero p{
+    margin-top:35px;
+    color:#b6c0cf;
+    font-size:clamp(16px,2vw,21px);
+
+    animation:
+        fadeUp 1s .5s both;
+}
+
+.badge{
+    display:inline-block;
+
+    margin-top:35px;
+
+    padding:12px 25px;
+
+    border:1px solid rgba(199,164,91,.5);
+    border-radius:50px;
+
+    color:var(--cream);
+
+    font-size:11px;
+    letter-spacing:2px;
+
+    animation:
+        fadeUp 1s .8s both;
+}
+
+@keyframes heroTitle{
+
+    from{
+        opacity:0;
+        transform:translateY(50px) scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   CONSTITUTION
+========================================================= */
+
+.constitution{
+    background:var(--cream);
+    color:#152238;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.paper{
+    width:min(950px,100%);
+
+    background:var(--paper);
+
+    padding:clamp(40px,6vw,75px);
+
+    border:1px solid #ddd4c2;
+
+    box-shadow:
+        0 30px 80px rgba(18,28,42,.25);
+
+    opacity:0;
+    transform:translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.constitution.visible .paper{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.paper::before{
+    content:"PRIVATE GOVERNMENT OF INDIA";
+
+    display:block;
+    text-align:center;
+
+    color:var(--gold);
+
+    letter-spacing:4px;
+    font-size:10px;
+
+    margin-bottom:30px;
+}
+
+.paper h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.paper p{
+    font-family:Georgia,serif;
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.article{
+    color:#8d7138;
+    font-family:Arial,sans-serif !important;
+    font-weight:900;
+    margin-top:25px;
+}
+
+
+/* =========================================================
+   LEADERS
+========================================================= */
+
+.leaders{
+    background:
+        linear-gradient(
+            135deg,
+            #17263d,
+            #0f1b2c
+        );
+}
+
+.section-intro{
+    max-width:800px;
+    margin-bottom:55px;
+}
+
+.section-intro .eyebrow{
+    margin-bottom:15px;
+}
+
+.section-intro p{
+    color:#aeb9c9;
+    margin-top:20px;
+    font-size:18px;
+}
+
+.leader-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+}
+
+
+/* =========================================================
+   LEADER CARD
+========================================================= */
+
+.leader{
+
+    min-height:720px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:#e9e3d7;
+
+    color:#142136;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.25);
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s ease;
+}
+
+.leader:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.35);
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   CAR IMAGE IS NOW A LARGE, CLEAR PHOTO AREA
+========================================================= */
+
+.leader-photo{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:470px;
+
+    overflow:hidden;
+
+    background:#68778c;
+
+    z-index:1;
+}
+
+.leader-photo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    opacity:1;
+
+    filter:
+        brightness(.86)
+        saturate(1.08);
+
+    transition:
+        transform .9s ease,
+        filter .6s ease;
+}
+
+.leader:hover .leader-photo img{
+
+    transform:scale(1.045);
+
+    filter:
+        brightness(.96)
+        saturate(1.15);
+}
+
+.leader-photo::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(10,20,35,.02),
+            rgba(10,20,35,.35)
+        );
+
+    z-index:2;
+}
+
+
+/* =========================================================
+   VEHICLE LABEL
+========================================================= */
+
+.vehicle-label{
+
+    position:absolute;
+
+    top:25px;
+    left:25px;
+
+    z-index:15;
+
+    padding:9px 15px;
+
+    background:
+        rgba(12,20,33,.86);
+
+    border:
+        1px solid rgba(255,255,255,.3);
+
+    color:#fff;
+
+    border-radius:30px;
+
+    font-size:10px;
+    letter-spacing:2px;
+
+    backdrop-filter:blur(8px);
+}
+
+
+/* =========================================================
+   CARTOON PEOPLE
+   NOW INSIDE PHOTO AREA + ABOVE IMAGE
+========================================================= */
+
+.leader-person{
+
+    position:absolute;
+
+    z-index:10;
+
+    left:50%;
+
+    top:105px;
+
+    bottom:auto;
+
+    transform:
+        translateX(-50%)
+        scale(1.05);
+
+    width:175px;
+    height:320px;
+
+    pointer-events:none;
+
+    filter:
+        drop-shadow(0 15px 15px rgba(0,0,0,.35));
+}
+
+
+/* HEAD */
+
+.leader-head{
+
+    position:absolute;
+
+    top:0;
+    left:37px;
+
+    width:100px;
+    height:108px;
+
+    background:#d9a074;
+
+    border-radius:50%;
+
+    z-index:12;
+}
+
+
+/* HAIR */
+
+.leader-hair{
+
+    position:absolute;
+
+    top:-9px;
+    left:31px;
+
+    width:112px;
+    height:55px;
+
+    background:#191919;
+
+    border-radius:
+        60px 60px 20px 20px;
+
+    z-index:13;
+}
+
+
+/* BODY */
+
+.leader-body{
+
+    position:absolute;
+
+    top:98px;
+    left:10px;
+
+    width:155px;
+    height:205px;
+
+    background:#172033;
+
+    border-radius:
+        32px 32px 10px 10px;
+
+    border:
+        2px solid rgba(255,255,255,.18);
+
+    z-index:11;
+}
+
+
+/* =========================================================
+   PRESIDENT — COURTROOM / LAWYER FORMALS
+========================================================= */
+
+.court-lapel{
+
+    position:absolute;
+
+    top:110px;
+    left:43px;
+
+    width:85px;
+    height:85px;
+
+    border-left:
+        4px solid #f5f0e6;
+
+    border-right:
+        4px solid #f5f0e6;
+
+    transform:skewY(14deg);
+
+    z-index:14;
+}
+
+.lawyer-band{
+
+    position:absolute;
+
+    top:98px;
+    left:50px;
+
+    width:75px;
+    height:11px;
+
+    background:#fffdf5;
+
+    z-index:15;
+}
+
+
+/* =========================================================
+   PM — FORMAL SUIT + TIE
+========================================================= */
+
+.formal-tie{
+
+    position:absolute;
+
+    top:108px;
+    left:72px;
+
+    width:21px;
+    height:125px;
+
+    background:#9c7d3d;
+
+    clip-path:
+        polygon(
+            30% 0,
+            70% 0,
+            100% 80%,
+            50% 100%,
+            0 80%
+        );
+
+    z-index:15;
+}
+
+
+/* =========================================================
+   LEADER INFORMATION
+   NOW BELOW PHOTO — NEVER COVERS CARTOON
+========================================================= */
+
+.leader-info{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:0;
+
+    min-height:250px;
+
+    z-index:20;
+
+    background:
+        rgba(255,253,247,.98);
+
+    padding:28px 35px;
+
+    border-top:
+        1px solid rgba(0,0,0,.08);
+
+    box-shadow:
+        0 -15px 35px rgba(0,0,0,.12);
+}
+
+.leader-label{
+
+    color:#8a7141;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+}
+
+.leader h3{
+
+    font-size:
+        clamp(30px,4vw,45px);
+
+    color:#132038;
+}
+
+.leader-info p{
+
+    margin-top:7px;
+
+    color:#657084;
+}
+
+
+/* =========================================================
+   DISTANCE
+========================================================= */
+
+.distance{
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9e2d4,
+            #f7f3eb
+        );
+
+    color:#142238;
+
+    text-align:center;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+}
+
+.distance h2{
+    color:#142238;
+}
+
+.distance-subtitle{
+
+    color:#738096;
+
+    font-size:18px;
+
+    margin-top:20px;
+}
+
+.distance-number{
+
+    margin:35px 0 15px;
+
+    font-size:
+        clamp(75px,13vw,155px);
+
+    font-weight:900;
+
+    letter-spacing:-8px;
+
+    color:#243b5a;
+}
+
+.city-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    width:min(900px,88%);
+
+    font-weight:bold;
+
+    font-size:20px;
+}
+
+.route{
+
+    width:min(900px,85%);
+
+    height:4px;
+
+    background:#bcb4a4;
+
+    margin:25px auto;
+
+    position:relative;
+}
+
+.route::before,
+.route::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:20px;
+    height:20px;
+
+    transform:translateY(-50%);
+
+    border-radius:50%;
+
+    background:#243b5a;
+
+    border:4px solid #f7f3eb;
+}
+
+.route::before{
+    left:0;
+}
+
+.route::after{
+    right:0;
+}
+
+.travel-dot{
+
+    position:absolute;
+
+    top:50%;
+    left:0;
+
+    width:12px;
+    height:12px;
+
+    transform:translateY(-50%);
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    opacity:0;
+}
+
+.distance.visible .travel-dot{
+
+    opacity:1;
+
+    animation:
+        travel 2.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes travel{
+
+    0%{
+        left:0;
+    }
+
+    50%{
+        left:50%;
+    }
+
+    100%{
+        left:100%;
+    }
+
+}
+
+.distance-note{
+
+    max-width:650px;
+
+    margin-top:25px;
+
+    color:#718096;
+}
+
+
+/* =========================================================
+   ISLAND
+========================================================= */
+
+.island{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    color:#fff;
+}
+
+.island-background{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:0;
+}
+
+.island-background img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    filter:
+        brightness(.72)
+        saturate(1.1);
+
+    transform:scale(1.06);
+
+    transition:
+        transform 2s ease;
+}
+
+.island.visible
+.island-background img{
+    transform:scale(1);
+}
+
+.island-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(16,27,45,.25),
+            rgba(8,18,31,.72)
+        );
+
+    z-index:1;
+}
+
+.island-content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(1000px,100%);
+}
+
+.island-content p{
+
+    color:#d5dce5;
+
+    margin-top:20px;
+}
+
+.houses{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-top:50px;
+}
+
+.house{
+
+    width:330px;
+
+    min-height:220px;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    background:
+        rgba(255,253,247,.95);
+
+    color:#142238;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.3);
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.island.visible .house:first-child{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.island.visible .house:last-child{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition-delay:.25s;
+}
+
+.house h3{
+
+    font-size:27px;
+
+    margin-bottom:15px;
+}
+
+.house p{
+
+    color:#657084;
+}
+
+
+/* =========================================================
+   MINISTRIES
+========================================================= */
+
+.ministries{
+
+    background:#f2eee5;
+
+    color:#142238;
+}
+
+.ministry-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.ministry{
+
+    min-height:190px;
+
+    padding:32px;
+
+    background:#fffdf8;
+
+    border:
+        1px solid #d8cfbd;
+
+    border-radius:18px;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+.ministry:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 20px 45px rgba(18,32,51,.13);
+}
+
+.ministry-number{
+
+    color:#a0844c;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+}
+
+.ministry h3{
+
+    font-size:24px;
+
+    margin-bottom:12px;
+}
+
+.ministry p{
+
+    color:#657084;
+}
+
+
+/* =========================================================
+   MICHAMI SECTION
+========================================================= */
+
+.michami{
+
+    background:
+        radial-gradient(
+            circle at center,
+            #263e60,
+            #101b2d 70%
+        );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    flex-direction:column;
+}
+
+.michami-title{
+
+    font-size:
+        clamp(65px,13vw,170px);
+
+    line-height:.78;
+
+    letter-spacing:-8px;
+
+    opacity:0;
+
+    transform:scale(.85);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.michami.visible .michami-title{
+
+    opacity:1;
+
+    transform:scale(1);
+}
+
+.michami-text{
+
+    max-width:700px;
+
+    margin-top:45px;
+
+    color:#b7c2d1;
+
+    font-size:18px;
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity 1s .6s ease,
+        transform 1s .6s ease;
+}
+
+.michami.visible .michami-text{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.michami-final{
+
+    margin-top:35px;
+
+    color:var(--gold);
+
+    font-size:
+        clamp(25px,4vw,50px);
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:
+        opacity 1s 1.2s ease,
+        transform 1s 1.2s ease;
+}
+
+.michami.visible .michami-final{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    animation:
+        softPulse 2.5s 2.2s infinite;
+}
+
+@keyframes softPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.04);
+    }
+
+}
+
+
+/* =========================================================
+   FINALE
+========================================================= */
+
+.finale{
+
+    min-height:100vh;
+
+    padding:50px 3%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d1829,
+            #182a43
+        );
+
+    overflow:hidden;
+}
+
+.final-scene{
+
+    width:min(1200px,96vw);
+
+    height:min(680px,85vh);
+
+    min-height:530px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #294463 0%,
+            #172a43 50%,
+            #0b1625 100%
+        );
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 35px 100px rgba(4,12,23,.5);
+}
+
+.final-scene::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.03) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.03) 1px,
+            transparent 1px
+        );
+
+    background-size:50px 50px;
+
+    opacity:.3;
+}
+
+
+/* =========================================================
+   BEFORE ADJOURNMENT
+========================================================= */
+
+.adjournment{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    z-index:100;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #294463,
+            #101b2d 75%
+        );
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.adjournment.hidden{
+
+    opacity:0;
+
+    transform:scale(1.08);
+
+    pointer-events:none;
+}
+
+.adjournment .eyebrow{
+    margin-bottom:18px;
+}
+
+.adjournment h2{
+
+    font-size:
+        clamp(42px,7vw,85px);
+
+    letter-spacing:-4px;
+}
+
+.adjournment p{
+
+    max-width:650px;
+
+    margin-top:20px;
+
+    color:#b8c3d2;
+
+    font-size:17px;
+}
+
+.adjourn-button{
+
+    margin-top:40px;
+
+    padding:18px 34px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:var(--gold);
+
+    color:#101b2d;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.3);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.adjourn-button:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.4);
+
+    background:#e0bd70;
+}
+
+.adjourn-button:active{
+
+    transform:
+        translateY(0)
+        scale(.98);
+}
+
+
+/* =========================================================
+   FINALE TITLE
+========================================================= */
+
+.final-text{
+
+    position:absolute;
+
+    top:40px;
+
+    left:50%;
+
+    width:90%;
+
+    transform:translateX(-50%);
+
+    text-align:center;
+
+    z-index:50;
+
+    transition:
+        opacity .5s ease;
+}
+
+.final-text h2{
+
+    font-size:
+        clamp(30px,5vw,62px);
+
+    letter-spacing:-2px;
+}
+
+.final-text p{
+
+    margin-top:14px;
+
+    color:#a9b6c8;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   FINALE CHARACTERS
+========================================================= */
+
+.final-president,
+.final-pm{
+
+    position:absolute;
+
+    bottom:75px;
+
+    width:190px;
+
+    height:330px;
+
+    z-index:10;
+
+    transition:all .8s cubic-bezier(.2,.8,.2,1);
+
+    opacity:1;
+}
+
+.final-president{
+    left:85px;
+}
+
+.final-pm{
+    right:85px;
+}
+
+.final-head{
+
+    position:absolute;
+
+    left:43px;
+
+    top:0;
+
+    width:105px;
+
+    height:115px;
+
+    background:#d9a074;
+
+    border-radius:50%;
+
+    z-index:4;
+}
+
+.final-hair{
+
+    position:absolute;
+
+    left:38px;
+
+    top:-8px;
+
+    width:115px;
+
+    height:58px;
+
+    background:#171717;
+
+    border-radius:
+        60px 60px 20px 20px;
+
+    z-index:5;
+}
+
+.final-body{
+
+    position:absolute;
+
+    left:12px;
+
+    top:105px;
+
+    width:165px;
+
+    height:210px;
+
+    background:#172033;
+
+    border-radius:
+        35px 35px 12px 12px;
+}
+
+.final-lapel{
+
+    position:absolute;
+
+    left:58px;
+
+    top:115px;
+
+    width:75px;
+
+    height:85px;
+
+    border-left:
+        3px solid #eee;
+
+    border-right:
+        3px solid #eee;
+
+    transform:skewY(15deg);
+
+    z-index:6;
+}
+
+.final-tie{
+
+    position:absolute;
+
+    left:85px;
+
+    top:110px;
+
+    width:20px;
+
+    height:125px;
+
+    background:#9c7d3d;
+
+    z-index:6;
+}
+
+
+/* =========================================================
+   GUN
+   FICTIONAL CARTOON PROP
+========================================================= */
+
+.final-gun-group{
+
+    position:absolute;
+
+    left:240px;
+
+    bottom:270px;
+
+    width:470px;
+
+    height:110px;
+
+    z-index:30;
+
+    transform-origin:left center;
+
+    opacity:0;
+
+    transition:opacity .4s ease;
+}
+
+.finale.active .final-gun-group{
+    opacity:1;
+}
+
+.final-gun-hand{
+
+    position:absolute;
+
+    left:0;
+
+    top:32px;
+
+    width:70px;
+
+    height:50px;
+
+    background:#d9a074;
+
+    border-radius:30px;
+
+    z-index:33;
+}
+
+.final-gun{
+
+    position:absolute;
+
+    left:45px;
+
+    top:28px;
+
+    width:155px;
+
+    height:40px;
+
+    background:#252d38;
+
+    border-radius:9px;
+
+    z-index:32;
+
+    transform:rotate(-2deg);
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.35);
+}
+
+.final-gun::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:125px;
+
+    top:11px;
+
+    width:240px;
+
+    height:18px;
+
+    background:#414c5b;
+
+    border-radius:
+        3px 12px 12px 3px;
+
+    z-index:31;
+}
+
+.final-gun::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:90px;
+
+    top:32px;
+
+    width:40px;
+
+    height:72px;
+
+    background:#202832;
+
+    border-radius:6px;
+
+    transform:rotate(14deg);
+}
+
+
+/* =========================================================
+   AIM LINE
+========================================================= */
+
+.aim-line{
+
+    position:absolute;
+
+    left:430px;
+
+    bottom:325px;
+
+    width:390px;
+
+    height:2px;
+
+    background:
+        repeating-linear-gradient(
+            to right,
+            rgba(255,255,255,.2) 0 8px,
+            transparent 8px 18px
+        );
+
+    transform:rotate(-2deg);
+
+    transform-origin:left;
+
+    z-index:8;
+
+    opacity:0;
+}
+
+.finale.active .aim-line{
+
+    opacity:1;
+
+    animation:
+        aimPulse
+        1.2s
+        infinite;
+}
+
+@keyframes aimPulse{
+
+    0%,100%{
+        opacity:.25;
+    }
+
+    50%{
+        opacity:.8;
+    }
+
+}
+
+
+/* =========================================================
+   PROJECTILE
+========================================================= */
+
+.projectile{
+
+    position:absolute;
+
+    left:610px;
+
+    bottom:320px;
+
+    width:15px;
+
+    height:15px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 20px #fff;
+
+    opacity:0;
+
+    z-index:40;
+}
+
+
+/* =========================================================
+   IMPACT
+========================================================= */
+
+.impact{
+
+    position:absolute;
+
+    right:165px;
+
+    bottom:255px;
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    opacity:0;
+
+    transform:scale(.2);
+
+    z-index:45;
+
+    pointer-events:none;
+}
+
+.impact::before,
+.impact::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:190px;
+    height:5px;
+
+    background:#fff;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+}
+
+.impact::after{
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-45deg);
+}
+
+
+/* =========================================================
+   HUG MESSAGE
+========================================================= */
+
+.hug-message{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.5);
+
+    width:90%;
+
+    text-align:center;
+
+    z-index:70;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+.hug-message h2{
+
+    font-size:
+        clamp(55px,9vw,110px);
+
+    color:#fff;
+
+    letter-spacing:-5px;
+
+    text-shadow:
+        0 10px 40px rgba(0,0,0,.35);
+}
+
+.hug-message p{
+
+    margin-top:20px;
+
+    color:var(--gold);
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+}
+
+.hug-heart{
+
+    position:absolute;
+
+    left:50%;
+    top:47%;
+
+    font-size:35px;
+
+    opacity:0;
+
+    z-index:65;
+}
+
+
+/* =========================================================
+   ADJOURNMENT OVERLAY AT THE VERY END
+========================================================= */
+
+.session-ended{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:90;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    background:
+        rgba(8,18,31,.96);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        opacity 1.2s ease;
+}
+
+.session-ended.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+.session-ended .stamp{
+
+    font-size:12px;
+
+    color:var(--gold);
+
+    letter-spacing:5px;
+
+    font-weight:bold;
+
+    margin-bottom:25px;
+}
+
+.session-ended h2{
+
+    font-size:
+        clamp(45px,8vw,100px);
+
+    letter-spacing:-5px;
+}
+
+.session-ended p{
+
+    color:#aab6c6;
+
+    margin-top:20px;
+
+    font-size:16px;
+}
+
+
+/* =========================================================
+   SHOT ANIMATION
+========================================================= */
+
+.finale.active .projectile{
+
+    animation:
+        projectileTravel
+        1.15s
+        .9s
+        linear
+        forwards;
+}
+
+@keyframes projectileTravel{
+
+    0%{
+        left:610px;
+        opacity:1;
+    }
+
+    100%{
+        left:910px;
+        opacity:1;
+    }
+
+}
+
+
+/* IMPACT */
+
+.finale.active .impact{
+
+    animation:
+        impactFlash
+        .45s
+        1.95s
+        ease-out
+        forwards;
+}
+
+@keyframes impactFlash{
+
+    0%{
+        opacity:0;
+        transform:scale(.2);
+    }
+
+    20%{
+        opacity:1;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.35);
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(1.8);
+    }
+
+}
+
+
+/* PM FALLS */
+
+.finale.active .final-pm{
+
+    animation:
+        pmFall
+        .8s
+        2s
+        cubic-bezier(.2,.8,.3,1)
+        forwards;
+}
+
+@keyframes pmFall{
+
+    0%{
+        transform:
+            translate(0,0)
+            rotate(0);
+    }
+
+    100%{
+        transform:
+            translate(55px,75px)
+            rotate(70deg);
+    }
+
+}
+
+
+/* SCREEN SHAKE */
+
+.finale.active .final-scene{
+
+    animation:
+        sceneShake
+        .4s
+        1.95s
+        ease-in-out;
+}
+
+@keyframes sceneShake{
+
+    0%,100%{
+        transform:translate(0);
+    }
+
+    15%{
+        transform:translate(-10px,5px);
+    }
+
+    30%{
+        transform:translate(9px,-5px);
+    }
+
+    45%{
+        transform:translate(-7px,-3px);
+    }
+
+    60%{
+        transform:translate(7px,4px);
+    }
+
+    75%{
+        transform:translate(-3px,-2px);
+    }
+
+}
+
+
+/* =========================================================
+   PRESIDENT WALKS TOWARD PM
+========================================================= */
+
+.finale.active .final-president{
+
+    animation:
+        presidentToHug
+        1.5s
+        2.8s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+@keyframes presidentToHug{
+
+    0%{
+        left:85px;
+        bottom:75px;
+        transform:scale(1);
+    }
+
+    55%{
+        left:310px;
+        bottom:75px;
+        transform:scale(1);
+    }
+
+    100%{
+        left:440px;
+        bottom:75px;
+        transform:scale(.9);
+    }
+
+}
+
+
+/* =========================================================
+   PM RECOVERS + WALKS TOWARD PRESIDENT
+========================================================= */
+
+.finale.active .final-pm{
+
+    animation:
+        pmToHug
+        1.5s
+        2.8s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+@keyframes pmToHug{
+
+    0%{
+        right:85px;
+        bottom:75px;
+
+        transform:
+            translate(55px,75px)
+            rotate(70deg);
+    }
+
+    30%{
+        right:85px;
+        bottom:75px;
+
+        transform:
+            translate(0)
+            rotate(0);
+    }
+
+    100%{
+        right:440px;
+        bottom:75px;
+
+        transform:
+            translate(0)
+            rotate(0)
+            scale(.9);
+    }
+
+}
+
+
+/* =========================================================
+   HUG REVEAL
+========================================================= */
+
+.finale.active .hug-message{
+
+    animation:
+        hugReveal
+        1s
+        4.15s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+@keyframes hugReveal{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.5);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+}
+
+
+/* HEART */
+
+.finale.active .hug-heart{
+
+    animation:
+        heartPop
+        1.5s
+        4s
+        ease-out
+        forwards;
+}
+
+@keyframes heartPop{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+    }
+
+    30%{
+        opacity:1;
+
+        transform:
+            translate(-50%,-100px)
+            scale(1.2);
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-170px)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    nav{
+        padding:0 20px;
+    }
+
+    nav .links{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:10px;
+    }
+
+    .leader-grid{
+        grid-template-columns:1fr;
+    }
+
+    .leader{
+        min-height:720px;
+    }
+
+    .leader-photo{
+        height:470px;
+    }
+
+    .leader-person{
+        transform:
+            translateX(-50%)
+            scale(.9);
+    }
+
+    .ministry-grid{
+        grid-template-columns:1fr;
+    }
+
+    .houses{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .city-row{
+        font-size:14px;
+    }
+
+    .final-scene{
+        height:620px;
+    }
+
+    .final-president{
+        left:20px;
+        transform:scale(.72);
+        transform-origin:bottom left;
+    }
+
+    .final-pm{
+        right:5px;
+        transform:scale(.72);
+        transform-origin:bottom right;
+    }
+
+    .final-gun-group{
+        left:130px;
+        bottom:250px;
+        transform:scale(.65);
+        transform-origin:left center;
+    }
+
+    .aim-line{
+        left:300px;
+        width:260px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    nav .links a:nth-child(2){
+        display:none;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .leader-info{
+        padding:24px 20px;
+    }
+
+    .distance-number{
+        letter-spacing:-4px;
+    }
+
+    .final-text{
+        top:25px;
+    }
+
+    .final-text h2{
+        font-size:25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+```
+<div class="logo">
+    PGOI <span>🇮🇳</span>
+</div>
+
+<div class="links">
+
+    <a href="#constitution">
+        Constitution
+    </a>
+
+    <a href="#leaders">
+        Leaders
+    </a>
+
+    <a href="#island">
+        Island
+    </a>
+
+    <a href="#michami">
+        Michami
+    </a>
+
+</div>
+```
+
+</nav>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+```
+<div class="hero-content">
+
+    <div class="eyebrow">
+        OFFICIAL • UNOFFICIAL • COMPLETELY PRIVATE
+    </div>
+
+    <h1>
+        PRIVATE<br>
+        GOVERNMENT<br>
+        OF INDIA
+    </h1>
+
+    <p>
+        Because apparently one government wasn't enough.
+    </p>
+
+    <div class="badge">
+        EST. SOMEWHERE BETWEEN CHAOS & FRIENDSHIP
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     CONSTITUTION
+===================================================== -->
+
+<section
+    class="constitution"
+    id="constitution"
+>
+
+```
+<div class="paper">
+
+    <h2>
+        THE CONSTITUTION
+    </h2>
+
+    <p>
+        We, the completely unofficial citizens of this
+        extremely unofficial government, hereby establish
+        a sovereign state based entirely on friendship,
+        unnecessary drama and questionable decision-making.
+    </p>
+
+    <p class="article">
+        ARTICLE I
+    </p>
+
+    <p>
+        The President is always right.
+    </p>
+
+    <p class="article">
+        ARTICLE II
+    </p>
+
+    <p>
+        If the President is wrong, refer to Article I.
+    </p>
+
+    <p class="article">
+        ARTICLE III
+    </p>
+
+    <p>
+        The Prime Minister may complain but shall ultimately
+        accept the government's decision.
+    </p>
+
+    <p class="article">
+        ARTICLE IV
+    </p>
+
+    <p>
+        Michami Dukkadam shall be observed with maximum drama.
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     LEADERS
+===================================================== -->
+
+<section
+    class="leaders"
+    id="leaders"
+>
+
+```
+<div class="section-intro">
+
+    <div class="eyebrow">
+        EXECUTIVE BRANCH
+    </div>
+
+    <h2>
+        THE TWO PEOPLE<br>
+        RUNNING THIS COUNTRY
+    </h2>
+
+    <p>
+        Every great government requires leadership.
+        Unfortunately, this is the leadership we ended up with.
+    </p>
+
+</div>
+
+
+<div class="leader-grid">
+
+
+    <!-- =================================================
+         PRESIDENT
+    ================================================== -->
+
+    <div class="leader">
+
+        <div class="leader-photo">
+
+            <img
+                src="landcruiser.jpg"
+                alt="President's Land Cruiser"
+                onerror="
+                    this.style.display='none';
+                    this.parentElement.style.background='#52627a';
+                "
+            >
+
+            <div class="vehicle-label">
+                PRESIDENTIAL VEHICLE • LAND CRUISER
+            </div>
+
+
+            <!-- CARTOON PRESIDENT
+                 NOW CLEARLY ABOVE THE PHOTO -->
+
+            <div class="leader-person">
+
+                <div class="leader-head"></div>
+
+                <div class="leader-hair"></div>
+
+                <div class="leader-body"></div>
+
+                <div class="court-lapel"></div>
+
+                <div class="lawyer-band"></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="leader-info">
+
+            <div class="leader-label">
+                OFFICE OF THE PRESIDENT
+            </div>
+
+            <h3>
+                THE PRESIDENT
+            </h3>
+
+            <p>
+                Supreme Commander of Bad Decisions.
+            </p>
+
+            <p>
+                Lawyer by profession.
+                President by unnecessary ambition.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         PRIME MINISTER
+    ================================================== -->
+
+    <div class="leader">
+
+        <div class="leader-photo">
+
+            <img
+                src="gwagon.jpg"
+                alt="Prime Minister's Black G-Wagon"
+                onerror="
+                    this.style.display='none';
+                    this.parentElement.style.background='#52627a';
+                "
+            >
+
+            <div class="vehicle-label">
+                PRIME MINISTERIAL VEHICLE • G-WAGON
+            </div>
+
+
+            <!-- CARTOON PM
+                 NOW CLEARLY ABOVE THE PHOTO -->
+
+            <div class="leader-person">
+
+                <div class="leader-head"></div>
+
+                <div class="leader-hair"></div>
+
+                <div class="leader-body"></div>
+
+                <div class="formal-tie"></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="leader-info">
+
+            <div class="leader-label">
+                OFFICE OF THE PRIME MINISTER
+            </div>
+
+            <h3>
+                THE PRIME MINISTER
+            </h3>
+
+            <p>
+                Minister of Being Far Away.
+            </p>
+
+            <p>
+                Currently operating from Bijapur.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     MUMBAI ↔ BIJAPUR
+===================================================== -->
+
+<section class="distance">
+
+```
+<div class="eyebrow">
+    DIPLOMATIC RELATIONS
+</div>
+
+<h2>
+    MUMBAI ↔ BIJAPUR
+</h2>
+
+<p class="distance-subtitle">
+    The greatest geographical tragedy known to friendship.
+</p>
+
+<div
+    class="distance-number"
+    id="distanceNumber"
+>
+    0+
+</div>
+
+<div class="city-row">
+
+    <span>
+        📍 MUMBAI
+    </span>
+
+    <span>
+        📍 BIJAPUR
+    </span>
+
+</div>
+
+<div class="route">
+
+    <div class="travel-dot"></div>
+
+</div>
+
+<p class="distance-note">
+
+    President studying in Mumbai.
+    <br>
+
+    Prime Minister chilling in Bijapur.
+    <br>
+
+    Diplomatic relations maintained through WhatsApp.
+
+</p>
+```
+
+</section>
+
+<!-- =====================================================
+     PRIVATE ISLAND
+===================================================== -->
+
+<section
+    class="island"
+    id="island"
+>
+
+```
+<div class="island-background">
+
+    <img
+        src="island.jpg"
+        alt="Private island"
+        onerror="
+            this.style.display='none';
+        "
+    >
+
+</div>
+
+<div class="island-overlay"></div>
+
+<div class="island-content">
+
+    <div class="eyebrow">
+        GOVERNMENT PROPERTY
+    </div>
+
+    <h2>
+        THE PRIVATE ISLAND
+    </h2>
+
+    <p>
+        Because distance is apparently not enough.
+    </p>
+
+    <div class="houses">
+
+        <div class="house">
+
+            <h3>
+                PRESIDENT'S HOUSE
+            </h3>
+
+            <p>
+                Ocean view.<br>
+                Private courtroom.<br>
+                Presidential office.<br>
+                Absolutely no visitors.
+            </p>
+
+        </div>
+
+        <div class="house">
+
+            <h3>
+                PM'S HOUSE
+            </h3>
+
+            <p>
+                Bigger garage.<br>
+                G-Wagon parking.<br>
+                Prime Minister's office.<br>
+                Still under surveillance.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     MINISTRIES
+===================================================== -->
+
+<section class="ministries">
+
+```
+<div class="section-intro">
+
+    <div class="eyebrow">
+        CABINET DEPARTMENTS
+    </div>
+
+    <h2>
+        MINISTRIES<br>
+        OF NONSENSE
+    </h2>
+
+    <p>
+        The departments responsible for ensuring that this
+        government continues functioning for absolutely no reason.
+    </p>
+
+</div>
+
+
+<div class="ministry-grid">
+
+    <div class="ministry">
+
+        <div class="ministry-number">
+            MINISTRY 01
+        </div>
+
+        <h3>
+            Ministry of Late Replies
+        </h3>
+
+        <p>
+            Responsible for messages answered after
+            approximately seven business days.
+        </p>
+
+    </div>
+
+
+    <div class="ministry">
+
+        <div class="ministry-number">
+            MINISTRY 02
+        </div>
+
+        <h3>
+            Ministry of Overthinking
+        </h3>
+
+        <p>
+            Converts simple situations into national emergencies.
+        </p>
+
+    </div>
+
+
+    <div class="ministry">
+
+        <div class="ministry-number">
+            MINISTRY 03
+        </div>
+
+        <h3>
+            Ministry of Random Plans
+        </h3>
+
+        <p>
+            Announces plans that may or may not actually happen.
+        </p>
+
+    </div>
+
+
+    <div class="ministry">
+
+        <div class="ministry-number">
+            MINISTRY 04
+        </div>
+
+        <h3>
+            Ministry of Food
+        </h3>
+
+        <p>
+            National policy:
+            eat first, discuss later.
+        </p>
+
+    </div>
+
+
+    <div class="ministry">
+
+        <div class="ministry-number">
+            MINISTRY 05
+        </div>
+
+        <h3>
+            Ministry of Drama
+        </h3>
+
+        <p>
+            Handles all unnecessary emotional escalation.
+        </p>
+
+    </div>
+
+
+    <div class="ministry">
+
+        <div class="ministry-number">
+            MINISTRY 06
+        </div>
+
+        <h3>
+            Ministry of Friendship
+        </h3>
+
+        <p>
+            Ensures that the government doesn't collapse completely.
+        </p>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     MICHAMI
+===================================================== -->
+
+<section
+    class="michami"
+    id="michami"
+>
+
+```
+<div class="eyebrow">
+    PRESIDENTIAL STATEMENT
+</div>
+
+<div class="michami-title">
+
+    MICHAMI<br>
+    DUKKADAM
+
+</div>
+
+<div class="michami-text">
+
+    On this sacred occasion, the President of the
+    Private Government formally acknowledges all
+    mistakes, misunderstandings, arguments,
+    unnecessary drama and questionable government decisions.
+
+</div>
+
+<div class="michami-final">
+
+    TO THE PRIME MINISTER:
+
+    <br><br>
+
+    MICHAMI DUKKADAM.
+
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     FINAL SLIDE
+===================================================== -->
+
+<section
+    class="finale"
+    id="finale"
+>
+
+```
+<div class="final-scene">
+
+
+    <!-- =================================================
+         ADJOURNMENT SCREEN
+         THIS IS WHAT THE VIEWER SEES FIRST
+    ================================================== -->
+
+    <div
+        class="adjournment"
+        id="adjournment"
+    >
+
+        <div class="eyebrow">
+            PRIVATE GOVERNMENT OF INDIA
+        </div>
+
+        <h2>
+            TIME FOR<br>
+            ADJOURNMENT
+        </h2>
+
+        <p>
+            The final session of the Private Government
+            is now ready to conclude.
+        </p>
+
+        <button
+            class="adjourn-button"
+            id="adjournButton"
+        >
+            ADJOURN THE SESSION →
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         FINAL TITLE
+    ================================================== -->
+
+    <div class="final-text">
+
+        <h2>
+            THE FINAL GOVERNMENT DECISION
+        </h2>
+
+        <p>
+            Presidential authority has been activated.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         PRESIDENT
+    ================================================== -->
+
+    <div class="final-president">
+
+        <div class="final-head"></div>
+
+        <div class="final-hair"></div>
+
+        <div class="final-body"></div>
+
+        <div class="final-lapel"></div>
+
+    </div>
+
+
+    <!-- =================================================
+         CARTOON GUN PROP
+    ================================================== -->
+
+    <div class="final-gun-group">
+
+        <div class="final-gun-hand"></div>
+
+        <div class="final-gun"></div>
+
+    </div>
+
+
+    <!-- AIM -->
+
+    <div class="aim-line"></div>
+
+
+    <!-- =================================================
+         PM
+    ================================================== -->
+
+    <div class="final-pm">
+
+        <div class="final-head"></div>
+
+        <div class="final-hair"></div>
+
+        <div class="final-body"></div>
+
+        <div class="final-tie"></div>
+
+    </div>
+
+
+    <!-- PROJECTILE -->
+
+    <div class="projectile"></div>
+
+
+    <!-- IMPACT -->
+
+    <div class="impact"></div>
+
+
+    <!-- HEART -->
+
+    <div class="hug-heart">
+        ❤️
+    </div>
+
+
+    <!-- =================================================
+         HUG MESSAGE
+    ================================================== -->
+
+    <div class="hug-message">
+
+        <h2>
+            MICHAMI DUKKADAM
+        </h2>
+
+        <p>
+            FRIENDSHIP &gt; GOVERNMENT DRAMA
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         VERY END
+    ================================================== -->
+
+    <div
+        class="session-ended"
+        id="sessionEnded"
+    >
+
+        <div class="stamp">
+            OFFICIAL RECORD
+        </div>
+
+        <h2>
+            SESSION<br>
+            ADJOURNED
+        </h2>
+
+        <p>
+            Government dissolved.<br>
+            Friendship restored.
+        </p>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<script>
+
+/* =========================================================
+   SCROLL REVEALS
+========================================================= */
+
+const revealSections =
+    document.querySelectorAll(
+        ".constitution, .distance, .island, .michami"
+    );
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.25
+        }
+
+    );
+
+revealSections.forEach(section => {
+
+    revealObserver.observe(section);
+
+});
+
+
+/* =========================================================
+   DISTANCE COUNTER
+========================================================= */
+
+const distanceNumber =
+    document.getElementById(
+        "distanceNumber"
+    );
+
+let distanceAnimated = false;
+
+const distanceSection =
+    document.querySelector(
+        ".distance"
+    );
+
+const distanceObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(
+                    entry.isIntersecting &&
+                    !distanceAnimated
+                ){
+
+                    distanceAnimated = true;
+
+                    const target = 500;
+
+                    const duration = 1600;
+
+                    const start =
+                        performance.now();
+
+                    function update(now){
+
+                        const progress =
+                            Math.min(
+                                (now-start) /
+                                duration,
+                                1
+                            );
+
+                        const value =
+                            Math.floor(
+                                progress * target
+                            );
+
+                        distanceNumber.textContent =
+                            value + "+";
+
+                        if(progress < 1){
+
+                            requestAnimationFrame(
+                                update
+                            );
+
+                        }
+
+                    }
+
+                    requestAnimationFrame(
+                        update
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.5
+        }
+
+    );
+
+distanceObserver.observe(
+    distanceSection
+);
+
+
+/* =========================================================
+   IMPORTANT:
+   FINALE DOES NOT AUTO-PLAY.
+========================================================= */
+
+const finale =
+    document.querySelector(
+        ".finale"
+    );
+
+const adjournment =
+    document.getElementById(
+        "adjournment"
+    );
+
+const adjournButton =
+    document.getElementById(
+        "adjournButton"
+    );
+
+const sessionEnded =
+    document.getElementById(
+        "sessionEnded"
+    );
+
+let finalePlayed = false;
+
+
+/* =========================================================
+   BUTTON CLICK
+========================================================= */
+
+adjournButton.addEventListener(
+    "click",
+    function(){
+
+        if(finalePlayed){
+            return;
+        }
+
+        finalePlayed = true;
+
+
+        /* Hide adjournment card */
+
+        adjournment.classList.add(
+            "hidden"
+        );
+
+
+        /* Activate finale */
+
+        setTimeout(
+            function(){
+
+                finale.classList.add(
+                    "active"
+                );
+
+            },
+            650
+        );
+
+
+        /*
+            After the hug has completed,
+            smoothly transition into
+            SESSION ADJOURNED.
+        */
+
+        setTimeout(
+            function(){
+
+                sessionEnded.classList.add(
+                    "show"
+                );
+
+            },
+            6500
+        );
+
+    }
+);
+
+
+/* =========================================================
+   EXTRA:
+   IF THE USER REACHES THE LAST SLIDE,
+   NOTHING PLAYS UNTIL THE BUTTON IS PRESSED.
+========================================================= */
+
+const finaleObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    /*
+                       Intentionally empty.
+
+                       The animation is controlled
+                       ONLY by the button.
+                    */
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:.45
+        }
+
+    );
+
+finaleObserver.observe(
+    finale
+);
+
+
+/* =========================================================
+   OPTIONAL:
+   CLICK "SESSION ADJOURNED" TO RESTART PAGE
+========================================================= */
+
+sessionEnded.addEventListener(
+    "click",
+    function(){
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+</script>
+
+</body>
+</html>
